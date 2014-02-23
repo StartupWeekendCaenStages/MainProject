@@ -3179,3 +3179,34 @@ NoMethodError (undefined method `password=' for #<Student:0x007fdf542d6bb8>):
   Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
   Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
   Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.5ms)
+
+
+Started POST "/Student" for 127.0.0.1 at 2014-02-23 09:10:31 +0100
+Processing by StudentController#create as */*
+  Parameters: {"email"=>"toto@gmail.com", "firstname"=>"samuel", "lastname"=>"berthe", "password"=>"[FILTERED]"}
+WARNING: Can't verify CSRF token authenticity
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `password=' for #<Student:0x007fdf5439ace8>):
+  app/controllers/student_controller.rb:29:in `create'
+
+
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.1ms)
+Connecting to database specified by database.yml
+
+
+Started POST "/Student" for 127.0.0.1 at 2014-02-23 09:11:24 +0100
+Processing by StudentController#create as */*
+  Parameters: {"email"=>"toto@gmail.com", "firstname"=>"samuel", "lastname"=>"berthe", "password"=>"[FILTERED]"}
+WARNING: Can't verify CSRF token authenticity
+Completed 500 Internal Server Error in 211ms
+
+NoMethodError (undefined method `password=' for #<Student:0x00000003b4d900>):
+  app/controllers/student_controller.rb:29:in `create'
+
+
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.3ms)

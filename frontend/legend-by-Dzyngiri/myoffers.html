@@ -62,10 +62,14 @@ $(
 						url: "http://startupweekendcaenstage.herokuapp.com/offer",
             /* ?& +$('search_form').serialize() */
 						type: "get",
-						dataType: "html",
+						dataType: "json",
 						error: function(){
               console.log("error");
-						},			
+						},	
+rossDomain: true,
+  xhrFields: {
+    withCredentials: true
+  },		
 						beforeSend: function(){
 						},
 						complete: function(){;
