@@ -59,22 +59,30 @@ $(
 				// Launch AJAX request.
 				$.ajax(
 					{
-						url: "myoffers.html?& +$('search_form').serialize()",
+						url: "http://startupweekendcaenstage.herokuapp.com/offer",
+            /* ?& +$('search_form').serialize() */
 						type: "get",
 						dataType: "html",
 						error: function(){
-
+              console.log("error");
 						},			
 						beforeSend: function(){
 						},
-						complete: function(){
+						complete: function(){;
 						},	
 						success: function( jsonData ){
+              console.log("lol");
 							// Load the content in to the page.
-							$('#offer_results').html( jsonData );
+							var json = $('#offer_results').html( jsonData );
+              var data = JSON.parse(json);
+
+              var display_area = $('#offer_results');
+              for (var object in data) {
+                 console.log(object, data[object]);
+              }
 						}
-					}							
-					);
+					}
+				);
 				
 				// Prevent default click.
 				return( false );					
