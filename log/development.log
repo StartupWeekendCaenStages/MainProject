@@ -3240,3 +3240,40 @@ Connecting to database specified by database.yml
 Connecting to database specified by database.yml
 Connecting to database specified by database.yml
 Connecting to database specified by database.yml
+
+
+Started POST "/Student" for 127.0.0.1 at 2014-02-23 11:04:58 +0100
+Processing by StudentController#create as */*
+  Parameters: {"email"=>"123456@gmail.com", "firstname"=>"Samuel", "lastname"=>"BERTHE", "password"=>"[FILTERED]"}
+WARNING: Can't verify CSRF token authenticity
+PG::UndefinedTable: ERROR:  relation "students" does not exist
+LINE 5:              WHERE a.attrelid = '"students"'::regclass
+                                        ^
+:             SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+              FROM pg_attribute a LEFT JOIN pg_attrdef d
+                ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+             WHERE a.attrelid = '"students"'::regclass
+               AND a.attnum > 0 AND NOT a.attisdropped
+             ORDER BY a.attnum
+
+Completed 500 Internal Server Error in 87ms
+
+ActiveRecord::StatementInvalid (PG::UndefinedTable: ERROR:  relation "students" does not exist
+LINE 5:              WHERE a.attrelid = '"students"'::regclass
+                                        ^
+:             SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+              FROM pg_attribute a LEFT JOIN pg_attrdef d
+                ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+             WHERE a.attrelid = '"students"'::regclass
+               AND a.attnum > 0 AND NOT a.attisdropped
+             ORDER BY a.attnum
+):
+  app/controllers/student_controller.rb:29:in `new'
+  app/controllers/student_controller.rb:29:in `create'
+
+
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.6ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (27.8ms)
