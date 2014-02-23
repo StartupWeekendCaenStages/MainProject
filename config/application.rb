@@ -62,12 +62,3 @@ module Load
 end
 
 
-
-module MyApp
-  class Application
-    # ....
-
-    config.middleware.use "Cors"
-    config.middleware.insert_before Warden::Manager, "Cors"
-  end
-end

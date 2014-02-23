@@ -24,25 +24,4 @@ class OfferController < ApplicationController
     offers = Offer.where("title LIKE ? OR description LIKE ?", q, q)
     render :json => offers
   end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 end
