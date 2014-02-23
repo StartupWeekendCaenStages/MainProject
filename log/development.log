@@ -3588,3 +3588,4 @@ LINE 5:              WHERE a.attrelid = '"students"'::regclass
   Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
   Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.3ms)
 Connecting to database specified by database.yml
+Connecting to database specified by database.yml
