@@ -40,27 +40,33 @@
     <script type="text/javascript" charset="utf-8">
           $(document).ready(function(){
             $("a[rel^='prettyPhoto']").prettyPhoto();
+    
           });
     </script>
     <script>
-$(
-	function(){
-		// Get a reference to the content div (into which we will load content).
-		var jContent = $( "#content" );
-						
-		// Hook up link click events to load content.
-		$( "#search_offers" ).click(
-			function( objEvent ){
-				var jLink = $( this );
-				
+ function displayOffers( jsonData ){
+                var htmldata = "";
+              	
+              	htmldata += "<table width=\"100%\" border=\"0\">";
+                htmldata += "<tr><td width=\"25%\"><h1>Titre de l'offre</h1></td><td><h1>Description</h1></td></tr>";
+                                  //$('#offer_results').append( "<table border=\"1\" width=\"100%\">" );
+                for (var object in jsonData)
+                {
+              	  htmldata += "<tr><td width=\"25%\"><h2>" + jsonData[object]['title'] + "</h2></td><td><h3>" + jsonData[object]['description'] + "</h3></td></tr>";
+                }
+              	htmldata += "</table>";
+               	$('#offer_results').append( htmldata );
+						}
+
+          //Display something at first load
+          $(document).ready(function(){
 				// Clear status list.
-				$( "#ajax-status" ).empty();
+				$( "#offer_results" ).empty();
 				
 				// Launch AJAX request.
 				$.ajax(
 					{
 						url: "http://startupweekendcaenstage.herokuapp.com/offer",
-            /* ?& +$('search_form').serialize() */
 						type: "get",
 						dataType: "json",
 						error: function(){
@@ -70,17 +76,59 @@ $(
 						},
 						complete: function(){;
 						},	
-						success: function( jsonData ){
-              console.log("lol");
-							// Load the content in to the page.
-							var json = $('#offer_results').html( jsonData );
-              var data = JSON.parse(json);
+						success: 
+            function( jsonData ){
+              displayOffers ( jsonData );
+						} 
+						
+					}
+				);
+				
+				// Prevent default click.
+				return( false );					
+			}
+			);
+    
+          //});
 
-              var display_area = $('#offer_results');
-              for (var object in data) {
-                 console.log(object, data[object]);
-              }
-						}
+$(
+	function(){
+						
+		// Hook up link click events to load content.
+		$( "#search_offers" ).click(
+			function( objEvent ){
+				
+				// Clear status list.
+				$( "#offer_results" ).empty();
+				
+				// Launch AJAX request.
+				$.ajax(
+					{
+						url: "http://startupweekendcaenstage.herokuapp.com/search?" + $('#search_form').serialize(),
+						type: "get",
+						dataType: "json",
+						error: function(){
+              console.log("error");
+						},	
+						beforeSend: function(){
+						},
+						complete: function(){;
+						},	
+						success: 
+            function( jsonData ){     displayOffers ( jsonData );
+             /*   var htmldata = "";
+              	
+              	htmldata += "<table width=\"100%\" border=\"0\">";
+                htmldata += "<tr><td width=\"25%\"><h1>Titre de l'offre</h1></td><td><h1>Description</h1></td></tr>";
+                                  //$('#offer_results').append( "<table border=\"1\" width=\"100%\">" );
+                for (var object in jsonData)
+                {
+              	  htmldata += "<tr><td width=\"25%\"><h2>" + jsonData[object]['title'] + "</h2></td><td><h3>" + jsonData[object]['description'] + "</h3></td></tr>";
+                }
+              	htmldata += "</table>";
+               	$('#offer_results').append( htmldata );  */
+						} 
+						
 					}
 				);
 				
@@ -166,7 +214,7 @@ $(
       <div class="container">      
         <h1 id="folio-headline">Votre recherche...</h1>
 <!--        <div class="row">    -->
-          <div id="offer_results" class="span4"> test
+          <div id="offer_results" class="span10">
           </div>
           <!-- /.span4 -->
 <!--        </div>   -->

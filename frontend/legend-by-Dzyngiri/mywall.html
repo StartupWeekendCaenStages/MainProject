@@ -43,40 +43,81 @@
           });
     </script>
     <script>
-$(
-	function(){
-		// Get a reference to the content div (into which we will load content).
-		var jContent = $( "#content" );
-						
-		// Hook up link click events to load content.
-		$( "#search_status" ).click(
-			function( objEvent ){
-				var jLink = $( this );
+ function displaystatus( jsonData ){
+                var htmldata = "";
+              	
+              	htmldata += "<table width=\"100%\" border=\"0\">";
+                htmldata += "<tr><td width=\"25%\"><h1>Date</h1></td><td><h1>Statut</h1></td></tr>";
+
+                for (var object in jsonData)
+                {
+              	  htmldata += "<tr><td width=\"25%\"><h2>" + jsonData[object]['created_at'] + "</h2></td><td><h3>" + jsonData[object]['text'] + "</h3></td></tr>";
+                }
+              	htmldata += "</table>";
+               	$('#status_results').append( htmldata );
+						}
+
+          //Display something at first load
+          $(document).ready(function(){
+				// Clear status list.
+				$( "#status_results" ).empty();
 				
 				// Launch AJAX request.
 				$.ajax(
 					{
-						url: "http://startupweekendcaenstage.herokuapp.com/offer",
-            /* ?& +$('search_form').serialize() */
+						url: "http://startupweekendcaenstage.herokuapp.com/InfoStatus",
 						type: "get",
-						dataType: "html",
+						dataType: "json",
 						error: function(){
               console.log("error");
-						},			
+						},	
 						beforeSend: function(){
 						},
 						complete: function(){;
 						},	
-						success: function( jsonData ){
-							// Load the content in to the page.
-							var json = $('#status_results').html( jsonData );
-              var data = JSON.parse(json);
+						success: 
+            function( jsonData ){
+              displaystatus ( jsonData );
+						} 
+						
+					}
+				);
+				
+				// Prevent default click.
+				return( false );					
+			}
+			);
+    
+          //});
 
-              var display_area = $('#status_results');
-              for (var object in data) {
-                 console.log(object, data[object]);
-              }
-						}
+$(
+	function(){
+						
+		// Hook up link click events to load content.
+		$( "#search_offers" ).click(
+			function( objEvent ){
+				
+				// Clear status list.
+				$( "#status_results" ).empty();
+				
+				// Launch AJAX request.
+				$.ajax(
+					{
+						url: "http://startupweekendcaenstage.herokuapp.com/InfoStatus?" + $('#search_form').serialize(),
+						type: "get",
+						dataType: "json",
+						error: function(){
+              console.log("error");
+						},	
+						beforeSend: function(){
+						},
+						complete: function(){;
+						},	
+						success: 
+            function( jsonData ){     
+              displaystatus ( jsonData );
+						} 
+						
 					}
 				);
 				
@@ -88,6 +129,7 @@ $(
 	}
 	);
     </script>
+    
     </head>
     <body>
     <!--******************** NAVBAR ********************-->
@@ -157,12 +199,12 @@ $(
     </section>
     <hr>
 
-    <!--******************** Status list ********************-->
+    <!--******************** Offers list ********************-->
     <!--<section id="portfolio" class="single-page scrollblock">   -->
       <div class="container">      
-        <h1 id="folio-headline">Votre recherche...</h1>
+        <h1 id="folio-headline">Liste des statuts</h1>
 <!--        <div class="row">    -->
-          <div id="offer_results" class="span4"> Liste des statuts
+          <div id="status_results" class="span10">
           </div>
           <!-- /.span4 -->
 <!--        </div>   -->
