@@ -77,18 +77,8 @@
 						complete: function(){;
 						},	
 						success: 
-            function( jsonData ){     displayOffers ( jsonData );
-             /*   var htmldata = "";
-              	
-              	htmldata += "<table width=\"100%\" border=\"0\">";
-                htmldata += "<tr><td width=\"25%\"><h1>Titre de l'offre</h1></td><td><h1>Description</h1></td></tr>";
-                                  //$('#offer_results').append( "<table border=\"1\" width=\"100%\">" );
-                for (var object in jsonData)
-                {
-              	  htmldata += "<tr><td width=\"25%\"><h2>" + jsonData[object]['title'] + "</h2></td><td><h3>" + jsonData[object]['description'] + "</h3></td></tr>";
-                }
-              	htmldata += "</table>";
-               	$('#offer_results').append( htmldata );  */
+            function( jsonData ){
+              displayOffers ( jsonData );
 						} 
 						
 					}
