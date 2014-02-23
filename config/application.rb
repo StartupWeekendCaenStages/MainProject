@@ -63,11 +63,11 @@ end
 
 
 
-config.middleware.insert_before Warden::Manager, Rack::Cors do
-  allow do
-    origins %r{^https?:\/\/[a-z0-9\-]+.yourawesome.domain}:?\d*$}i
-    resource '*',
-    headers: :any,
-    methods: [:get, :put, :create, :delete]
+module MyApp
+  class Application
+    # ....
+
+    config.middleware.use "Cors"
+    config.middleware.insert_before Warden::Manager, "Cors"
   end
 end
