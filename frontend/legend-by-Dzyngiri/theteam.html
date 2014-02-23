@@ -42,6 +42,47 @@
             $("a[rel^='prettyPhoto']").prettyPhoto();
           });
         </script>
+    <script>
+    $(
+  function(){
+            
+    // Hook up link click events to load content.
+    $( "#start_request" ).click(
+      function( objEvent ){
+        
+        // Clear status list.
+        $( "#offer_results" ).empty();
+        
+        // Launch AJAX request.
+        $.ajax(
+          {
+            url: "http://startupweekendcaenstage.herokuapp.com/contact/add?" + $('#contact_form').serialize(),
+            type: "get",
+            dataType: "json",
+            error: function(){
+              console.log("error");
+            },  
+            beforeSend: function(){
+            },
+            complete: function(){;
+            },  
+            success: 
+            function( jsonData ){
+              $('#succeed').html( "Votre message est pris en compte !" );
+              $('#contact_form').hide();
+            } 
+            
+          }
+        );
+        
+        // Prevent default click.
+        return( false );          
+      }
+      );
+    
+  }
+  );
+  </script>
     </head>
     <body>
     <!--******************** NAVBAR ********************-->
@@ -158,13 +199,13 @@
         <div class="row">
           <div class="span12">
             <div class="cform" id="theme-form">
-              <form action="#" method="post" class="cform-form">
+              <form id="contact_form" class="cform-form">
                 <div class="row">
                   <div class="span6"> <span class="your-name">
-                    <input type="text" name="your-name" placeholder="Votre nom" class="cform-text" size="40" title="votre nom">
+                    <input type="text" name="name" placeholder="Votre nom" class="cform-text" size="40" title="votre nom">
                     </span> </div>
                   <div class="span6"> <span class="your-email">
-                    <input type="text" name="your-email" placeholder="Votre e-mail" class="cform-text" size="40" title="votre e-mail">
+                    <input type="text" name="email" placeholder="Votre e-mail" class="cform-text" size="40" title="votre e-mail">
                     </span> </div>
                 </div>
                 <div class="row">
@@ -173,10 +214,11 @@
                     </span> </div>
                 </div>
                 <div>
-                  <input type="submit" value="Envoyer" class="cform-submit pull-left">
+                  <input id="start_request" type="submit" value="Envoyer" class="cform-submit pull-left">
                 </div>
                 <div class="cform-response-output"></div>
               </form>
+              <h2 id="succeed" style="color: #F0BF00;"></h2>
             </div>
           </div>
           <!-- ./span12 -->
