@@ -79,6 +79,7 @@ Load::Application.routes.draw do
   # GET /Student/checkPassword + email + password -> renvoie { login: "ok" / "ko" }
 
   # GET /InfoStatus -> list of infos
-  
+  # GET /InfoStatus/:id -> get an info
+  # POST /InfoStatus + text -> create an info
 
 end

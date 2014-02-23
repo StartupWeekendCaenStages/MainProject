@@ -11,7 +11,7 @@ class OfferController < ApplicationController
     response.headers["Access-Control-Allow-Origin"] = "*"
     @offer = Offer.new
     @offer.title = params[:title]
-    @offer.description = description[:description]
+    @offer.description = params[:description]
     @offer.save
     render :json => []
   end
