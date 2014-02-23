@@ -49,9 +49,11 @@ $(
 		var jContent = $( "#content" );
 						
 		// Hook up link click events to load content.
-		$( "#search_status" ).click(
+		$( "#search_offers" ).click(
 			function( objEvent ){
-				var jLink = $( this );
+		
+				// Clear status list.
+				$( "#status_results" ).empty();
 				
 				// Launch AJAX request.
 				$.ajax(
@@ -59,23 +61,29 @@ $(
 						url: "http://startupweekendcaenstage.herokuapp.com/offer",
             /* ?& +$('search_form').serialize() */
 						type: "get",
-						dataType: "html",
+						dataType: "json",
 						error: function(){
               console.log("error");
-						},			
+						},	
 						beforeSend: function(){
 						},
 						complete: function(){;
 						},	
 						success: function( jsonData ){
-							// Load the content in to the page.
-							var json = $('#status_results').html( jsonData );
-              var data = JSON.parse(json);
+              //console.log("lol");
+                var htmldata = "";
+              	
+              	htmldata += "<table width=\"100%\" border=\"0\">";
+                htmldata += "<tr><td width=\"25%\"><h1>Auteur</h1></td><td><h1>Statut</h1></td></tr>";
+                                  //$('#offer_results').append( "<table border=\"1\" width=\"100%\">" );
+                for (var object in jsonData)
+                {
+              	  htmldata += "<tr><td width=\"25%\"><h2>" + jsonData[object]['title'] + "</h2></td><td><h3>" + jsonData[object]['description'] + "</h3></td></tr>";
+                  //console.log(jsonData[object]['description']);
+                }
+              	htmldata += "</table>";
+               	$('#status_results').append( htmldata );
 
-              var display_area = $('#status_results');
-              for (var object in data) {
-                 console.log(object, data[object]);
-              }
 						}
 					}
 				);
@@ -157,12 +165,12 @@ $(
     </section>
     <hr>
 
-    <!--******************** Status list ********************-->
+    <!--******************** Offers list ********************-->
     <!--<section id="portfolio" class="single-page scrollblock">   -->
       <div class="container">      
-        <h1 id="folio-headline">Votre recherche...</h1>
+        <h1 id="folio-headline">Liste des statuts</h1>
 <!--        <div class="row">    -->
-          <div id="offer_results" class="span4"> Liste des statuts
+          <div id="status_results" class="span10">
           </div>
           <!-- /.span4 -->
 <!--        </div>   -->
