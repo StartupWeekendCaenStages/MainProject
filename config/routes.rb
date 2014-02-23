@@ -58,11 +58,9 @@ Load::Application.routes.draw do
 
   resources :offer
 
-  root to: "offer#list"
+  root to: "offer#index"
 
-  #match "/offer/show/:id" => "offer#show"
-  #match "/offer/create" => "offer#create"
-  #match "/offer/list" => "offer#list"
+  match '/search' => 'Offer#search'
 
   resources :Offer
 

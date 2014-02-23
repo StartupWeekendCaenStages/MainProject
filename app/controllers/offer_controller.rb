@@ -19,4 +19,19 @@ class OfferController < ApplicationController
     render :json => @offers
   end
 
+  def search
+    q = "%#{params[:keyword]}%"
+    offers = Offer.where("title LIKE ? OR description LIKE ?;", q, q).first(4242)
+    puts offers
+    render :json => offers
+  end
+
+  def add_cors_headers
+    headers['Access-Control-Allow-Origin'] = '*'
+    headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
+    headers['Access-Control-Request-Method'] = '*'
+    headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+  end
+
+
 end

@@ -2280,3 +2280,375 @@ NameError (undefined local variable or method `description' for #<OfferControlle
   Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
   Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
   Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.2ms)
+
+
+Started POST "/offer" for 127.0.0.1 at 2014-02-23 02:40:02 +0100
+Processing by OfferController#create as */*
+WARNING: Can't verify CSRF token authenticity
+Completed 500 Internal Server Error in 3ms
+
+NameError (undefined local variable or method `description' for #<OfferController:0x007f187c6ce210>):
+  app/controllers/offer_controller.rb:12:in `create'
+
+
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.1ms)
+
+
+Started GET "/offer/list" for 127.0.0.1 at 2014-02-23 02:56:16 +0100
+Connecting to database specified by database.yml
+
+
+Started GET "/offer/list" for 127.0.0.1 at 2014-02-23 03:08:54 +0100
+Processing by OfferController#show as HTML
+  Parameters: {"id"=>"list"}
+  [1m[36mOffer Load (52.9ms)[0m  [1mSELECT "offers".* FROM "offers" [0m
+Completed 200 OK in 469ms (Views: 2.4ms | ActiveRecord: 418.7ms)
+
+
+Started GET "/search" for 127.0.0.1 at 2014-02-23 03:09:01 +0100
+Processing by OfferController#search as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/search" for 127.0.0.1 at 2014-02-23 03:20:48 +0100
+Connecting to database specified by database.yml
+
+
+Started POST "/offer" for 127.0.0.1 at 2014-02-23 03:26:49 +0100
+Processing by OfferController#create as */*
+  Parameters: {"keyword"=>"toto"}
+WARNING: Can't verify CSRF token authenticity
+Completed 500 Internal Server Error in 211ms
+
+NameError (undefined local variable or method `description' for #<OfferController:0x007f37c40130a8>):
+  app/controllers/offer_controller.rb:12:in `create'
+
+
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.9ms)
+
+
+Started POST "/search" for 127.0.0.1 at 2014-02-23 03:27:00 +0100
+Processing by OfferController#search as */*
+  Parameters: {"keyword"=>"toto"}
+WARNING: Can't verify CSRF token authenticity
+  [1m[36mOffer Load (50.0ms)[0m  [1mSELECT "offers".* FROM "offers" WHERE (title LIKE %'toto'% OR description LIKE %'toto'%)[0m
+PG::SyntaxError: ERROR:  syntax error at or near "%"
+LINE 1: ...ELECT "offers".* FROM "offers"  WHERE (title LIKE %'toto'% O...
+                                                             ^
+: SELECT "offers".* FROM "offers"  WHERE (title LIKE %'toto'% OR description LIKE %'toto'%)
+Completed 500 Internal Server Error in 54ms
+
+ActiveRecord::StatementInvalid (PG::SyntaxError: ERROR:  syntax error at or near "%"
+LINE 1: ...ELECT "offers".* FROM "offers"  WHERE (title LIKE %'toto'% O...
+                                                             ^
+: SELECT "offers".* FROM "offers"  WHERE (title LIKE %'toto'% OR description LIKE %'toto'%)):
+  app/controllers/offer_controller.rb:24:in `search'
+
+
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.0ms)
+
+
+Started GET "/search" for 127.0.0.1 at 2014-02-23 03:30:02 +0100
+Processing by OfferController#search as HTML
+  [1m[35mOffer Load (2030.7ms)[0m  SELECT "offers".* FROM "offers" WHERE (title LIKE %NULL% OR description LIKE %NULL%)
+PG::SyntaxError: ERROR:  syntax error at or near "%"
+LINE 1: ...ELECT "offers".* FROM "offers"  WHERE (title LIKE %NULL% OR ...
+                                                             ^
+: SELECT "offers".* FROM "offers"  WHERE (title LIKE %NULL% OR description LIKE %NULL%)
+Completed 500 Internal Server Error in 2066ms
+
+ActiveRecord::StatementInvalid (PG::SyntaxError: ERROR:  syntax error at or near "%"
+LINE 1: ...ELECT "offers".* FROM "offers"  WHERE (title LIKE %NULL% OR ...
+                                                             ^
+: SELECT "offers".* FROM "offers"  WHERE (title LIKE %NULL% OR description LIKE %NULL%)):
+  app/controllers/offer_controller.rb:24:in `search'
+
+
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.3ms)
+
+
+Started POST "/search" for 127.0.0.1 at 2014-02-23 03:30:06 +0100
+Processing by OfferController#search as */*
+  Parameters: {"keyword"=>"toto"}
+WARNING: Can't verify CSRF token authenticity
+  [1m[36mOffer Load (52.3ms)[0m  [1mSELECT "offers".* FROM "offers" WHERE (title LIKE %'toto'% OR description LIKE %'toto'%)[0m
+PG::SyntaxError: ERROR:  syntax error at or near "%"
+LINE 1: ...ELECT "offers".* FROM "offers"  WHERE (title LIKE %'toto'% O...
+                                                             ^
+: SELECT "offers".* FROM "offers"  WHERE (title LIKE %'toto'% OR description LIKE %'toto'%)
+Completed 500 Internal Server Error in 54ms
+
+ActiveRecord::StatementInvalid (PG::SyntaxError: ERROR:  syntax error at or near "%"
+LINE 1: ...ELECT "offers".* FROM "offers"  WHERE (title LIKE %'toto'% O...
+                                                             ^
+: SELECT "offers".* FROM "offers"  WHERE (title LIKE %'toto'% OR description LIKE %'toto'%)):
+  app/controllers/offer_controller.rb:24:in `search'
+
+
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.5ms)
+Connecting to database specified by database.yml
+
+
+Started POST "/search" for 127.0.0.1 at 2014-02-23 03:32:38 +0100
+Processing by OfferController#search as */*
+  Parameters: {"keyword"=>"toto"}
+WARNING: Can't verify CSRF token authenticity
+Completed 200 OK in 236ms (Views: 0.4ms | ActiveRecord: 195.5ms)
+
+
+Started POST "/search" for 127.0.0.1 at 2014-02-23 03:33:45 +0100
+Processing by OfferController#search as */*
+  Parameters: {"keyword"=>"toto"}
+WARNING: Can't verify CSRF token authenticity
+Completed 200 OK in 104ms (Views: 0.2ms | ActiveRecord: 102.0ms)
+
+
+Started POST "/search" for 127.0.0.1 at 2014-02-23 03:43:18 +0100
+Connecting to database specified by database.yml
+
+
+Started POST "/search" for 127.0.0.1 at 2014-02-23 03:44:41 +0100
+Processing by OfferController#search as */*
+  Parameters: {"keyword"=>"toto"}
+WARNING: Can't verify CSRF token authenticity
+  [1m[36mOffer Load (53.4ms)[0m  [1mSELECT "offers".* FROM "offers" WHERE (title LIKE '%toto%' OR description LIKE '%toto%')[0m
+Completed 500 Internal Server Error in 269ms
+
+ArgumentError (wrong number of arguments(0 for 1)):
+  app/controllers/offer_controller.rb:24:in `search'
+
+
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.1ms)
+
+
+Started POST "/search" for 127.0.0.1 at 2014-02-23 03:53:06 +0100
+Connecting to database specified by database.yml
+
+
+Started POST "/search" for 127.0.0.1 at 2014-02-23 03:57:44 +0100
+Processing by OfferController#search as */*
+  Parameters: {"keyword"=>"toto"}
+WARNING: Can't verify CSRF token authenticity
+Completed 200 OK in 470ms (Views: 0.3ms | ActiveRecord: 429.8ms)
+
+
+Started POST "/search" for 127.0.0.1 at 2014-02-23 04:03:13 +0100
+Connecting to database specified by database.yml
+
+
+Started POST "/search" for 127.0.0.1 at 2014-02-23 04:04:07 +0100
+Processing by OfferController#search as */*
+  Parameters: {"keyword"=>"toto"}
+WARNING: Can't verify CSRF token authenticity
+  [1m[36mOffer Load (80.4ms)[0m  [1mSELECT "offers".* FROM "offers" WHERE (title LIKE '%toto%' OR description LIKE '%toto%';) LIMIT 4242[0m
+PG::SyntaxError: ERROR:  syntax error at or near ";"
+LINE 1: ... (title LIKE '%toto%' OR description LIKE '%toto%';) LIMIT 4...
+                                                             ^
+: SELECT  "offers".* FROM "offers"  WHERE (title LIKE '%toto%' OR description LIKE '%toto%';) LIMIT 4242
+Completed 500 Internal Server Error in 566ms
+
+ActiveRecord::StatementInvalid (PG::SyntaxError: ERROR:  syntax error at or near ";"
+LINE 1: ... (title LIKE '%toto%' OR description LIKE '%toto%';) LIMIT 4...
+                                                             ^
+: SELECT  "offers".* FROM "offers"  WHERE (title LIKE '%toto%' OR description LIKE '%toto%';) LIMIT 4242):
+  app/controllers/offer_controller.rb:24:in `search'
+
+
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.0ms)
+
+
+Started POST "/search" for 127.0.0.1 at 2014-02-23 04:05:47 +0100
+Processing by OfferController#search as */*
+  Parameters: {"keyword"=>"toto"}
+WARNING: Can't verify CSRF token authenticity
+  [1m[35mOffer Load (115.2ms)[0m  SELECT "offers".* FROM "offers" WHERE (title LIKE '%toto%' OR description LIKE '%toto%';) LIMIT 4242
+PG::SyntaxError: ERROR:  syntax error at or near ";"
+LINE 1: ... (title LIKE '%toto%' OR description LIKE '%toto%';) LIMIT 4...
+                                                             ^
+: SELECT  "offers".* FROM "offers"  WHERE (title LIKE '%toto%' OR description LIKE '%toto%';) LIMIT 4242
+Completed 500 Internal Server Error in 117ms
+
+ActiveRecord::StatementInvalid (PG::SyntaxError: ERROR:  syntax error at or near ";"
+LINE 1: ... (title LIKE '%toto%' OR description LIKE '%toto%';) LIMIT 4...
+                                                             ^
+: SELECT  "offers".* FROM "offers"  WHERE (title LIKE '%toto%' OR description LIKE '%toto%';) LIMIT 4242):
+  app/controllers/offer_controller.rb:24:in `search'
+
+
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.0ms)
+Connecting to database specified by database.yml
+
+
+Started POST "/search" for 127.0.0.1 at 2014-02-23 04:06:21 +0100
+Processing by OfferController#search as */*
+  Parameters: {"keyword"=>"toto"}
+WARNING: Can't verify CSRF token authenticity
+  [1m[36mOffer Load (1652.6ms)[0m  [1mSELECT "offers".* FROM "offers" WHERE (title LIKE '%toto%' OR description LIKE '%toto%';) LIMIT 4242[0m
+PG::SyntaxError: ERROR:  syntax error at or near ";"
+LINE 1: ... (title LIKE '%toto%' OR description LIKE '%toto%';) LIMIT 4...
+                                                             ^
+: SELECT  "offers".* FROM "offers"  WHERE (title LIKE '%toto%' OR description LIKE '%toto%';) LIMIT 4242
+Completed 500 Internal Server Error in 3289ms
+
+ActiveRecord::StatementInvalid (PG::SyntaxError: ERROR:  syntax error at or near ";"
+LINE 1: ... (title LIKE '%toto%' OR description LIKE '%toto%';) LIMIT 4...
+                                                             ^
+: SELECT  "offers".* FROM "offers"  WHERE (title LIKE '%toto%' OR description LIKE '%toto%';) LIMIT 4242):
+  app/controllers/offer_controller.rb:24:in `search'
+
+
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.1ms)
+
+
+Started POST "/search" for 127.0.0.1 at 2014-02-23 04:06:30 +0100
+Processing by OfferController#search as */*
+  Parameters: {"keyword"=>"toto"}
+WARNING: Can't verify CSRF token authenticity
+  [1m[35mOffer Load (52.8ms)[0m  SELECT "offers".* FROM "offers" WHERE (title LIKE '%toto%' OR description LIKE '%toto%';) LIMIT 4242
+PG::SyntaxError: ERROR:  syntax error at or near ";"
+LINE 1: ... (title LIKE '%toto%' OR description LIKE '%toto%';) LIMIT 4...
+                                                             ^
+: SELECT  "offers".* FROM "offers"  WHERE (title LIKE '%toto%' OR description LIKE '%toto%';) LIMIT 4242
+Completed 500 Internal Server Error in 54ms
+
+ActiveRecord::StatementInvalid (PG::SyntaxError: ERROR:  syntax error at or near ";"
+LINE 1: ... (title LIKE '%toto%' OR description LIKE '%toto%';) LIMIT 4...
+                                                             ^
+: SELECT  "offers".* FROM "offers"  WHERE (title LIKE '%toto%' OR description LIKE '%toto%';) LIMIT 4242):
+  app/controllers/offer_controller.rb:24:in `search'
+
+
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.4ms)
+
+
+Started GET "/search" for 127.0.0.1 at 2014-02-23 04:06:36 +0100
+Processing by OfferController#search as HTML
+  [1m[36mOffer Load (53.4ms)[0m  [1mSELECT "offers".* FROM "offers" WHERE (title LIKE '%%' OR description LIKE '%%';) LIMIT 4242[0m
+PG::SyntaxError: ERROR:  syntax error at or near ";"
+LINE 1: ..."  WHERE (title LIKE '%%' OR description LIKE '%%';) LIMIT 4...
+                                                             ^
+: SELECT  "offers".* FROM "offers"  WHERE (title LIKE '%%' OR description LIKE '%%';) LIMIT 4242
+Completed 500 Internal Server Error in 55ms
+
+ActiveRecord::StatementInvalid (PG::SyntaxError: ERROR:  syntax error at or near ";"
+LINE 1: ..."  WHERE (title LIKE '%%' OR description LIKE '%%';) LIMIT 4...
+                                                             ^
+: SELECT  "offers".* FROM "offers"  WHERE (title LIKE '%%' OR description LIKE '%%';) LIMIT 4242):
+  app/controllers/offer_controller.rb:24:in `search'
+
+
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.2ms)
+
+
+Started POST "/search" for 127.0.0.1 at 2014-02-23 04:06:48 +0100
+Processing by OfferController#search as */*
+  Parameters: {"keyword"=>"toto"}
+WARNING: Can't verify CSRF token authenticity
+  [1m[35mOffer Load (170.0ms)[0m  SELECT "offers".* FROM "offers" WHERE (title LIKE '%toto%' OR description LIKE '%toto%';) LIMIT 4242
+PG::SyntaxError: ERROR:  syntax error at or near ";"
+LINE 1: ... (title LIKE '%toto%' OR description LIKE '%toto%';) LIMIT 4...
+                                                             ^
+: SELECT  "offers".* FROM "offers"  WHERE (title LIKE '%toto%' OR description LIKE '%toto%';) LIMIT 4242
+Completed 500 Internal Server Error in 517ms
+
+ActiveRecord::StatementInvalid (PG::SyntaxError: ERROR:  syntax error at or near ";"
+LINE 1: ... (title LIKE '%toto%' OR description LIKE '%toto%';) LIMIT 4...
+                                                             ^
+: SELECT  "offers".* FROM "offers"  WHERE (title LIKE '%toto%' OR description LIKE '%toto%';) LIMIT 4242):
+  app/controllers/offer_controller.rb:28:in `search'
+
+
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.6ms)
+
+
+Started POST "/search" for 127.0.0.1 at 2014-02-23 04:06:56 +0100
+Processing by OfferController#search as */*
+  Parameters: {"keyword"=>"toto"}
+WARNING: Can't verify CSRF token authenticity
+  [1m[36mOffer Load (4245.2ms)[0m  [1mSELECT "offers".* FROM "offers" WHERE (title LIKE '%toto%' OR description LIKE '%toto%';) LIMIT 4242[0m
+PG::SyntaxError: ERROR:  syntax error at or near ";"
+LINE 1: ... (title LIKE '%toto%' OR description LIKE '%toto%';) LIMIT 4...
+                                                             ^
+: SELECT  "offers".* FROM "offers"  WHERE (title LIKE '%toto%' OR description LIKE '%toto%';) LIMIT 4242
+Completed 500 Internal Server Error in 4247ms
+
+ActiveRecord::StatementInvalid (PG::SyntaxError: ERROR:  syntax error at or near ";"
+LINE 1: ... (title LIKE '%toto%' OR description LIKE '%toto%';) LIMIT 4...
+                                                             ^
+: SELECT  "offers".* FROM "offers"  WHERE (title LIKE '%toto%' OR description LIKE '%toto%';) LIMIT 4242):
+  app/controllers/offer_controller.rb:28:in `search'
+
+
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.4ms)
+
+
+Started POST "/search" for 127.0.0.1 at 2014-02-23 04:07:03 +0100
+Processing by OfferController#search as */*
+  Parameters: {"keyword"=>"toto"}
+WARNING: Can't verify CSRF token authenticity
+  [1m[35mOffer Load (53.1ms)[0m  SELECT "offers".* FROM "offers" WHERE (title LIKE '%toto%' OR description LIKE '%toto%';) LIMIT 4242
+PG::SyntaxError: ERROR:  syntax error at or near ";"
+LINE 1: ... (title LIKE '%toto%' OR description LIKE '%toto%';) LIMIT 4...
+                                                             ^
+: SELECT  "offers".* FROM "offers"  WHERE (title LIKE '%toto%' OR description LIKE '%toto%';) LIMIT 4242
+Completed 500 Internal Server Error in 222ms
+
+ActiveRecord::StatementInvalid (PG::SyntaxError: ERROR:  syntax error at or near ";"
+LINE 1: ... (title LIKE '%toto%' OR description LIKE '%toto%';) LIMIT 4...
+                                                             ^
+: SELECT  "offers".* FROM "offers"  WHERE (title LIKE '%toto%' OR description LIKE '%toto%';) LIMIT 4242):
+  app/controllers/offer_controller.rb:24:in `search'
+
+
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.4ms)
+
+
+Started POST "/search" for 127.0.0.1 at 2014-02-23 04:07:05 +0100
+Processing by OfferController#search as */*
+  Parameters: {"keyword"=>"toto"}
+WARNING: Can't verify CSRF token authenticity
+  [1m[36mOffer Load (51.5ms)[0m  [1mSELECT "offers".* FROM "offers" WHERE (title LIKE '%toto%' OR description LIKE '%toto%';) LIMIT 4242[0m
+PG::SyntaxError: ERROR:  syntax error at or near ";"
+LINE 1: ... (title LIKE '%toto%' OR description LIKE '%toto%';) LIMIT 4...
+                                                             ^
+: SELECT  "offers".* FROM "offers"  WHERE (title LIKE '%toto%' OR description LIKE '%toto%';) LIMIT 4242
+Completed 500 Internal Server Error in 53ms
+
+ActiveRecord::StatementInvalid (PG::SyntaxError: ERROR:  syntax error at or near ";"
+LINE 1: ... (title LIKE '%toto%' OR description LIKE '%toto%';) LIMIT 4...
+                                                             ^
+: SELECT  "offers".* FROM "offers"  WHERE (title LIKE '%toto%' OR description LIKE '%toto%';) LIMIT 4242):
+  app/controllers/offer_controller.rb:24:in `search'
+
+
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.8ms)
