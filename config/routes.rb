@@ -63,9 +63,16 @@ Load::Application.routes.draw do
   match '/search' => 'Offer#search'
   match '/Student/checkPassword' => 'Student#checkPassword'
 
+
+  match '/contact/add' => 'Student#contactAdd'
+
+
   resources :InfoStatus
   resources :Offer
   resources :Student
+
+
+
 
 
   # GET /offer -> list of offers

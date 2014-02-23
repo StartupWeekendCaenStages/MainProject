@@ -35,4 +35,17 @@ class StudentController < ApplicationController
     render :json => []
   end
 
+  def contactAdd
+    response.headers["Access-Control-Allow-Origin"] = "*"
+
+    params[:name]
+    params[:email]
+    params[:message]
+
+    #titre KUIKUP - Message de "toto"
+    # from {email}
+    # to kuikup.caen@gmail.com
+    render :json => []
+  end
+
 end

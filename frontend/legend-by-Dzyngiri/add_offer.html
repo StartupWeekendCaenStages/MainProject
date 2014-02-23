@@ -42,6 +42,34 @@
             $("a[rel^='prettyPhoto']").prettyPhoto();
     
           });
+
+	  function createNewOfferSubmit(event) {
+	  var title = document.getElementById("offer_title").value;
+	  var text = document.getElementById("offer_content").value;
+	  document.getElementById("offer_title").value = "";
+	  document.getElementById("offer_content").value = "";
+	  console.log(title, text);
+	  $.ajax({
+	  url: "http://startupweekendcaenstage.herokuapp.com/offer",
+	  type: "post",
+	  dataType: "json",
+	  data: {
+	  "title":title,
+	  "text":text,
+	  },
+	  error: function (json) {
+	  console.log("fail");
+	  //window.location = "myoffers.html";
+	  },
+	  success: function (json) {
+	  console.log("success");
+	  //window.location = "myoffers.html";
+	  },
+	  });
+	  };
+
+
+
     </script>
     <script>
  function displayOffers( jsonData ){
@@ -178,19 +206,19 @@ $(
         <div class="row">
           <div class="span12">
             <div class="cform" id="theme-form">
-              <form id="add_offer" class="cform-form">
+              <form id="add_offer" class="cform-form" onsubmit="return false;">
                 <div class="row">
                   <div class="span6"> <span class="your-name">
-                    <input type="text" name="title" placeholder="Votre titre" class="cform-text" size="40" title="Votre titre">
+                    <input type="text" id="offer_title" name="title" placeholder="Votre titre" class="cform-text" size="40" title="Votre titre">
                     </span> </div>
                 </div>
                 <div class="row">
                   <div class="span12"> <span class="message">
-                    <textarea name="message" placeholder="Votre annonce..." class="cform-textarea" cols="40" rows="10" title="Décrivez votre offre."></textarea>
-                    </span> </div>
+                      <textarea name="message" id="offer_content" placeholder="Votre annonce..." class="cform-textarea" cols="40" rows="10" title="Décrivez votre offre."></textarea>
+                  </span> </div>
                 </div>
                 <div>
-                  <input type="submit" value="Envoyer" class="cform-submit pull-left">
+                  <input type="submit" value="Envoyer" class="cform-submit pull-left" onClick="createNewOfferSubmit(); return false;">
                 </div>
                 <div class="cform-response-output"></div>
               </form>
