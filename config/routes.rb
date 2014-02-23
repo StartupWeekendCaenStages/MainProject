@@ -63,6 +63,7 @@ Load::Application.routes.draw do
   match '/search' => 'Offer#search'
   match '/Student/checkPassword' => 'Student#checkPassword'
 
+  resources :InfoStatus
   resources :Offer
   resources :Student
 
@@ -76,5 +77,8 @@ Load::Application.routes.draw do
   # GET /Student/:id -> get a student
   # POST /Student + email + password + firstname + lastname -> create a student
   # GET /Student/checkPassword + email + password -> renvoie { login: "ok" / "ko" }
+
+  # GET /InfoStatus -> list of infos
+  
 
 end

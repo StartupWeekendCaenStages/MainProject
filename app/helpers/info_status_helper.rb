@@ -1,0 +1,2 @@
+module InfoStatusHelper
+end

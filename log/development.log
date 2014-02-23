@@ -3673,3 +3673,65 @@ Processing by StudentController#checkPassword as */*
   Parameters: {"email"=>"123456@gmail.com", "password"=>"[FILTERED]"}
   [1m[35mStudent Load (50.2ms)[0m  SELECT "students".* FROM "students" WHERE (email = '123456@gmail.com' AND password = '123456')
 Completed 200 OK in 52ms (Views: 0.2ms | ActiveRecord: 50.2ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/offer" for 127.0.0.1 at 2014-02-23 11:53:41 +0100
+Connecting to database specified by database.yml
+
+
+Started GET "/InfosStatus" for 127.0.0.1 at 2014-02-23 12:01:20 +0100
+
+ActionController::RoutingError (No route matches [GET] "/InfosStatus"):
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /usr/share/ruby/webrick/httpserver.rb:138:in `service'
+  /usr/share/ruby/webrick/httpserver.rb:94:in `run'
+  /usr/share/ruby/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.8ms)
+
+
+Started GET "/InfoStatus" for 127.0.0.1 at 2014-02-23 12:01:29 +0100
+Processing by InfoStatusController#index as HTML
+  [1m[36mInfoStatus Load (107.4ms)[0m  [1mSELECT "info_statuses".* FROM "info_statuses" [0m
+Completed 200 OK in 456ms (Views: 0.5ms | ActiveRecord: 385.5ms)
+
+
+Started POST "/InfoStatus" for 127.0.0.1 at 2014-02-23 12:02:08 +0100
+Processing by InfoStatusController#create as */*
+  Parameters: {"text"=>"toto aime les frites"}
+WARNING: Can't verify CSRF token authenticity
+  [1m[35m (59.1ms)[0m  BEGIN
+  [1m[36mSQL (185.7ms)[0m  [1mINSERT INTO "info_statuses" ("created_at", "text", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Sun, 23 Feb 2014 11:02:08 UTC +00:00], ["text", "toto aime les frites"], ["updated_at", Sun, 23 Feb 2014 11:02:08 UTC +00:00]]
+  [1m[35m (69.1ms)[0m  COMMIT
+Completed 200 OK in 326ms (Views: 0.3ms | ActiveRecord: 366.8ms)
+
+
+Started GET "/InfoStatus" for 127.0.0.1 at 2014-02-23 12:02:10 +0100
+Processing by InfoStatusController#index as HTML
+  [1m[36mInfoStatus Load (53.7ms)[0m  [1mSELECT "info_statuses".* FROM "info_statuses" [0m
+Completed 200 OK in 57ms (Views: 1.2ms | ActiveRecord: 53.7ms)
+
+
+Started GET "/InfoStatus/1" for 127.0.0.1 at 2014-02-23 12:02:39 +0100
+Processing by InfoStatusController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mInfoStatus Load (393.3ms)[0m  SELECT "info_statuses".* FROM "info_statuses" WHERE "info_statuses"."id" = $1 LIMIT 1  [["id", "1"]]
+Completed 200 OK in 397ms (Views: 1.0ms | ActiveRecord: 393.3ms)
