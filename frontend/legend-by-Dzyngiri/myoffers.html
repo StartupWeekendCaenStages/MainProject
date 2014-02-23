@@ -59,7 +59,7 @@ $(
 				// Launch AJAX request.
 				$.ajax(
 					{
-						url: jLink.attr( "href" ),
+						url: "myoffers.html?& +$('search_form').serialize()",
 						type: "get",
 						dataType: "html",
 						error: function(){
@@ -69,9 +69,9 @@ $(
 						},
 						complete: function(){
 						},	
-						success: function( strData ){
+						success: function( jsonData ){
 							// Load the content in to the page.
-							jContent.html( strData );
+							$('#offer_results').html( jsonData );
 						}
 					}							
 					);
@@ -121,7 +121,7 @@ $(
         <div class="row">
           <div class="span12">
             <div class="cform" id="theme-form">
-              <form action="#" method="post" class="cform-form">
+              <form id="search_form" action="#" method="post" class="cform-form">
                 <div class="row">
                   <div class="span6"> <span class="your-name">
                     <input type="text" name="your-name" placeholder="Mot-cl&eacute;..." class="cform-text" size="40" title="mot-cle">
