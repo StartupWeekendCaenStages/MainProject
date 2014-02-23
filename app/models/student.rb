@@ -1,3 +1,3 @@
 class Student < ActiveRecord::Base
-  attr_accessible :email, :firstname, :lastname
+  attr_accessible :email, :firstname, :lastname, :password
 end

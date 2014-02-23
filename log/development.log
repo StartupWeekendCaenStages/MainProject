@@ -2652,3 +2652,530 @@ LINE 1: ... (title LIKE '%toto%' OR description LIKE '%toto%';) LIMIT 4...
   Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
   Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
   Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.8ms)
+
+
+Started POST "/search" for 127.0.0.1 at 2014-02-23 04:56:21 +0100
+Connecting to database specified by database.yml
+
+
+Started POST "/search" for 127.0.0.1 at 2014-02-23 05:00:01 +0100
+Processing by OfferController#search as */*
+  Parameters: {"keyword"=>"toto"}
+WARNING: Can't verify CSRF token authenticity
+  [1m[36mOffer Load (53.1ms)[0m  [1mSELECT "offers".* FROM "offers" WHERE (title LIKE '%toto%' OR description LIKE '%toto%';)[0m
+PG::SyntaxError: ERROR:  syntax error at or near ";"
+LINE 1: ..."  WHERE (title LIKE '%toto%' OR description LIKE '%toto%';)
+                                                                     ^
+: SELECT "offers".* FROM "offers"  WHERE (title LIKE '%toto%' OR description LIKE '%toto%';)
+Completed 500 Internal Server Error in 370ms
+
+ActiveRecord::StatementInvalid (PG::SyntaxError: ERROR:  syntax error at or near ";"
+LINE 1: ..."  WHERE (title LIKE '%toto%' OR description LIKE '%toto%';)
+                                                                     ^
+: SELECT "offers".* FROM "offers"  WHERE (title LIKE '%toto%' OR description LIKE '%toto%';)):
+  app/controllers/offer_controller.rb:24:in `search'
+
+
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.9ms)
+
+
+Started POST "/search" for 127.0.0.1 at 2014-02-23 05:02:54 +0100
+Processing by OfferController#search as */*
+  Parameters: {"keyword"=>"toto"}
+WARNING: Can't verify CSRF token authenticity
+  [1m[35mOffer Load (56.2ms)[0m  SELECT "offers".* FROM "offers" WHERE (title LIKE '%toto%' OR description LIKE '%toto%';)
+PG::SyntaxError: ERROR:  syntax error at or near ";"
+LINE 1: ..."  WHERE (title LIKE '%toto%' OR description LIKE '%toto%';)
+                                                                     ^
+: SELECT "offers".* FROM "offers"  WHERE (title LIKE '%toto%' OR description LIKE '%toto%';)
+Completed 500 Internal Server Error in 221ms
+
+ActiveRecord::StatementInvalid (PG::SyntaxError: ERROR:  syntax error at or near ";"
+LINE 1: ..."  WHERE (title LIKE '%toto%' OR description LIKE '%toto%';)
+                                                                     ^
+: SELECT "offers".* FROM "offers"  WHERE (title LIKE '%toto%' OR description LIKE '%toto%';)):
+  app/controllers/offer_controller.rb:25:in `puts'
+  app/controllers/offer_controller.rb:25:in `puts'
+  app/controllers/offer_controller.rb:25:in `search'
+
+
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.7ms)
+
+
+Started POST "/search" for 127.0.0.1 at 2014-02-23 05:03:22 +0100
+Processing by OfferController#search as */*
+  Parameters: {"keyword"=>"toto"}
+WARNING: Can't verify CSRF token authenticity
+  [1m[36mOffer Load (53.3ms)[0m  [1mSELECT "offers".* FROM "offers" WHERE (title LIKE '%toto%' OR description LIKE '%toto%')[0m
+Completed 200 OK in 270ms (Views: 29.2ms | ActiveRecord: 218.1ms)
+
+
+Started POST "/search" for 127.0.0.1 at 2014-02-23 05:03:30 +0100
+Processing by OfferController#search as */*
+  Parameters: {"keyword"=>"toto"}
+WARNING: Can't verify CSRF token authenticity
+  [1m[35mOffer Load (51.1ms)[0m  SELECT "offers".* FROM "offers" WHERE (title LIKE '%toto%' OR description LIKE '%toto%')
+Completed 200 OK in 231ms (Views: 1.5ms | ActiveRecord: 210.4ms)
+
+
+Started POST "/search" for 127.0.0.1 at 2014-02-23 05:03:44 +0100
+Processing by OfferController#search as */*
+  Parameters: {"keyword"=>"toot"}
+WARNING: Can't verify CSRF token authenticity
+  [1m[36mOffer Load (76.0ms)[0m  [1mSELECT "offers".* FROM "offers" WHERE (title LIKE '%toot%' OR description LIKE '%toot%')[0m
+Completed 200 OK in 239ms (Views: 2.4ms | ActiveRecord: 235.6ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/offer/1" for 127.0.0.1 at 2014-02-23 05:19:26 +0100
+Connecting to database specified by database.yml
+
+
+Started POST "/search" for 127.0.0.1 at 2014-02-23 05:21:09 +0100
+Processing by OfferController#search as */*
+  Parameters: {"keyword"=>"toot"}
+WARNING: Can't verify CSRF token authenticity
+  [1m[36mOffer Load (50.9ms)[0m  [1mSELECT "offers".* FROM "offers" WHERE (title LIKE '%toot%' OR description LIKE '%toot%')[0m
+Completed 200 OK in 262ms (Views: 5.1ms | ActiveRecord: 213.4ms)
+
+
+Started GET "/offer/1" for 127.0.0.1 at 2014-02-23 05:21:22 +0100
+Processing by OfferController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mOffer Load (154.7ms)[0m  SELECT "offers".* FROM "offers" WHERE "offers"."id" = $1 LIMIT 1  [["id", "1"]]
+Completed 200 OK in 165ms (Views: 1.7ms | ActiveRecord: 207.5ms)
+
+
+Started GET "/user" for 127.0.0.1 at 2014-02-23 05:34:18 +0100
+Connecting to database specified by database.yml
+
+
+Started POST "/student" for 127.0.0.1 at 2014-02-23 05:35:50 +0100
+
+ActionController::RoutingError (No route matches [POST] "/student"):
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /usr/share/ruby/webrick/httpserver.rb:138:in `service'
+  /usr/share/ruby/webrick/httpserver.rb:94:in `run'
+  /usr/share/ruby/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (28.8ms)
+
+
+Started POST "/student" for 127.0.0.1 at 2014-02-23 05:36:52 +0100
+
+ActionController::RoutingError (No route matches [POST] "/student"):
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /usr/share/ruby/webrick/httpserver.rb:138:in `service'
+  /usr/share/ruby/webrick/httpserver.rb:94:in `run'
+  /usr/share/ruby/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/student" for 127.0.0.1 at 2014-02-23 05:36:57 +0100
+
+ActionController::RoutingError (No route matches [GET] "/student"):
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /usr/share/ruby/webrick/httpserver.rb:138:in `service'
+  /usr/share/ruby/webrick/httpserver.rb:94:in `run'
+  /usr/share/ruby/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/offer" for 127.0.0.1 at 2014-02-23 05:37:10 +0100
+Processing by OfferController#index as HTML
+  [1m[36mOffer Load (50.8ms)[0m  [1mSELECT "offers".* FROM "offers" [0m
+Completed 200 OK in 274ms (Views: 5.9ms | ActiveRecord: 213.8ms)
+
+
+Started GET "/student" for 127.0.0.1 at 2014-02-23 05:37:14 +0100
+
+ActionController::RoutingError (No route matches [GET] "/student"):
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /usr/share/ruby/webrick/httpserver.rb:138:in `service'
+  /usr/share/ruby/webrick/httpserver.rb:94:in `run'
+  /usr/share/ruby/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/Student" for 127.0.0.1 at 2014-02-23 05:38:44 +0100
+Processing by StudentController#index as HTML
+Completed 500 Internal Server Error in 2ms
+
+NameError (uninitialized constant StudentController::User):
+  app/controllers/student_controller.rb:4:in `index'
+
+
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.5ms)
+
+
+Started GET "/Student" for 127.0.0.1 at 2014-02-23 05:39:02 +0100
+Processing by StudentController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NameError (uninitialized constant StudentController::User):
+  app/controllers/student_controller.rb:4:in `index'
+
+
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.4ms)
+
+
+Started GET "/Student" for 127.0.0.1 at 2014-02-23 05:39:19 +0100
+Processing by StudentController#index as HTML
+  [1m[35mStudent Load (55.4ms)[0m  SELECT "students".* FROM "students" 
+Completed 200 OK in 283ms (Views: 0.3ms | ActiveRecord: 279.2ms)
+
+
+Started GET "/Student" for 127.0.0.1 at 2014-02-23 05:39:26 +0100
+Processing by StudentController#index as HTML
+  [1m[36mStudent Load (51.4ms)[0m  [1mSELECT "students".* FROM "students" [0m
+Completed 200 OK in 212ms (Views: 0.4ms | ActiveRecord: 208.4ms)
+
+
+Started GET "/Student" for 127.0.0.1 at 2014-02-23 05:40:09 +0100
+Processing by StudentController#index as HTML
+  [1m[35mStudent Load (50.7ms)[0m  SELECT "students".* FROM "students" 
+Completed 200 OK in 343ms (Views: 0.3ms | ActiveRecord: 339.7ms)
+
+
+Started POST "/student" for 127.0.0.1 at 2014-02-23 05:40:16 +0100
+
+ActionController::RoutingError (No route matches [POST] "/student"):
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /usr/share/ruby/webrick/httpserver.rb:138:in `service'
+  /usr/share/ruby/webrick/httpserver.rb:94:in `run'
+  /usr/share/ruby/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (30.9ms)
+
+
+Started POST "/student" for 127.0.0.1 at 2014-02-23 05:40:29 +0100
+
+ActionController::RoutingError (No route matches [POST] "/student"):
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /usr/share/ruby/webrick/httpserver.rb:138:in `service'
+  /usr/share/ruby/webrick/httpserver.rb:94:in `run'
+  /usr/share/ruby/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started POST "/student" for 127.0.0.1 at 2014-02-23 05:40:32 +0100
+
+ActionController::RoutingError (No route matches [POST] "/student"):
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /usr/share/ruby/webrick/httpserver.rb:138:in `service'
+  /usr/share/ruby/webrick/httpserver.rb:94:in `run'
+  /usr/share/ruby/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started POST "/student" for 127.0.0.1 at 2014-02-23 05:40:50 +0100
+
+ActionController::RoutingError (No route matches [POST] "/student"):
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /usr/share/ruby/webrick/httpserver.rb:138:in `service'
+  /usr/share/ruby/webrick/httpserver.rb:94:in `run'
+  /usr/share/ruby/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started POST "/student" for 127.0.0.1 at 2014-02-23 05:41:11 +0100
+
+ActionController::RoutingError (No route matches [POST] "/student"):
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /usr/share/ruby/webrick/httpserver.rb:138:in `service'
+  /usr/share/ruby/webrick/httpserver.rb:94:in `run'
+  /usr/share/ruby/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started POST "/Student" for 127.0.0.1 at 2014-02-23 05:41:23 +0100
+Processing by StudentController#create as */*
+  Parameters: {"email"=>"toto@gmail.com"}
+WARNING: Can't verify CSRF token authenticity
+  [1m[36m (50.6ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (163.3ms)[0m  INSERT INTO "students" ("created_at", "email", "firstname", "lastname", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Sun, 23 Feb 2014 04:41:24 UTC +00:00], ["email", "toto@gmail.com"], ["firstname", nil], ["lastname", nil], ["updated_at", Sun, 23 Feb 2014 04:41:24 UTC +00:00]]
+  [1m[36m (53.1ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 448ms (Views: 0.5ms | ActiveRecord: 474.9ms)
+
+
+Started POST "/Student" for 127.0.0.1 at 2014-02-23 05:41:41 +0100
+Processing by StudentController#create as */*
+  Parameters: {"email"=>"toto@gmail.com", "firstname"=>"samuel", "lastname"=>"berthe"}
+WARNING: Can't verify CSRF token authenticity
+  [1m[35m (50.5ms)[0m  BEGIN
+  [1m[36mSQL (51.3ms)[0m  [1mINSERT INTO "students" ("created_at", "email", "firstname", "lastname", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Sun, 23 Feb 2014 04:41:41 UTC +00:00], ["email", "toto@gmail.com"], ["firstname", "samuel"], ["lastname", "berthe"], ["updated_at", Sun, 23 Feb 2014 04:41:41 UTC +00:00]]
+  [1m[35m (52.9ms)[0m  COMMIT
+Completed 200 OK in 334ms (Views: 0.3ms | ActiveRecord: 310.9ms)
+
+
+Started GET "/Student" for 127.0.0.1 at 2014-02-23 05:41:46 +0100
+Processing by StudentController#index as HTML
+  [1m[36mStudent Load (51.0ms)[0m  [1mSELECT "students".* FROM "students" [0m
+Completed 200 OK in 56ms (Views: 1.8ms | ActiveRecord: 51.0ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/Offer" for 127.0.0.1 at 2014-02-23 05:53:56 +0100
+Connecting to database specified by database.yml
+
+
+Started POST "/Student" for 127.0.0.1 at 2014-02-23 05:54:49 +0100
+Processing by StudentController#create as */*
+  Parameters: {"email"=>"toto@gmail.com", "firstname"=>"samuel", "lastname"=>"berthe"}
+WARNING: Can't verify CSRF token authenticity
+Completed 500 Internal Server Error in 218ms
+
+NoMethodError (undefined method `password=' for #<Student:0x000000034ab908>):
+  app/controllers/student_controller.rb:18:in `create'
+
+
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.8ms)
+
+
+Started POST "/Student" for 127.0.0.1 at 2014-02-23 09:05:06 +0100
+Processing by StudentController#create as */*
+  Parameters: {"email"=>"123456@gmail.com", "firstname"=>"samuel", "lastname"=>"berthe", "password"=>"[FILTERED]"}
+WARNING: Can't verify CSRF token authenticity
+Completed 500 Internal Server Error in 170ms
+
+NoMethodError (undefined method `password=' for #<Student:0x007fa7a88ad188>):
+  app/controllers/student_controller.rb:29:in `create'
+
+
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.4ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/Student" for 127.0.0.1 at 2014-02-23 09:06:03 +0100
+Processing by StudentController#index as HTML
+  [1m[36mStudent Load (52.1ms)[0m  [1mSELECT "students".* FROM "students" [0m
+Completed 200 OK in 291ms (Views: 2.7ms | ActiveRecord: 236.6ms)
+
+
+Started POST "/Student" for 127.0.0.1 at 2014-02-23 09:06:21 +0100
+Processing by StudentController#create as */*
+  Parameters: {"email"=>"123456@gmail.com", "firstname"=>"samuel", "lastname"=>"berthe", "password"=>"[FILTERED]"}
+WARNING: Can't verify CSRF token authenticity
+Completed 500 Internal Server Error in 2ms
+
+NoMethodError (undefined method `password=' for #<Student:0x007fdf5c1ff458>):
+  app/controllers/student_controller.rb:29:in `create'
+
+
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.3ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.1ms)
+
+
+Started POST "/Student" for 127.0.0.1 at 2014-02-23 09:06:59 +0100
+Processing by StudentController#create as */*
+  Parameters: {"email"=>"toto@gmail.com", "firstname"=>"samuel", "lastname"=>"berthe"}
+WARNING: Can't verify CSRF token authenticity
+  [1m[35m (50.5ms)[0m  BEGIN
+  [1m[36mSQL (159.0ms)[0m  [1mINSERT INTO "students" ("created_at", "email", "firstname", "lastname", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Sun, 23 Feb 2014 08:06:59 UTC +00:00], ["email", "toto@gmail.com"], ["firstname", "samuel"], ["lastname", "berthe"], ["updated_at", Sun, 23 Feb 2014 08:06:59 UTC +00:00]]
+  [1m[35m (52.8ms)[0m  COMMIT
+Completed 200 OK in 439ms (Views: 0.3ms | ActiveRecord: 469.9ms)
+
+
+Started POST "/Student" for 127.0.0.1 at 2014-02-23 09:07:28 +0100
+Processing by StudentController#create as */*
+  Parameters: {"email"=>"123456@gmail.com", "firstname"=>"samuel", "lastname"=>"berthe", "password"=>"[FILTERED]"}
+WARNING: Can't verify CSRF token authenticity
+Completed 500 Internal Server Error in 162ms
+
+NoMethodError (undefined method `password=' for #<Student:0x007fdf5c3c5490>):
+  app/controllers/student_controller.rb:29:in `create'
+
+
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.5ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.7ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.2ms)
+
+
+Started POST "/Student" for 127.0.0.1 at 2014-02-23 09:07:58 +0100
+Processing by StudentController#create as */*
+  Parameters: {"email"=>"toto@gmail.com", "firstname"=>"samuel", "lastname"=>"berthe", "password"=>"[FILTERED]"}
+WARNING: Can't verify CSRF token authenticity
+Completed 500 Internal Server Error in 183ms
+
+NoMethodError (undefined method `password=' for #<Student:0x007fdf542d6bb8>):
+  app/controllers/student_controller.rb:29:in `create'
+
+
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.5ms)

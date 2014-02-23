@@ -15,14 +15,13 @@ class OfferController < ApplicationController
   end
 
   def show
-    @offers = Offer.all
-    render :json => @offers
+    @offer = Offer.find(params[:id])
+    render :json => @offer
   end
 
   def search
     q = "%#{params[:keyword]}%"
-    offers = Offer.where("title LIKE ? OR description LIKE ?;", q, q).first(4242)
-    puts offers
+    offers = Offer.where("title LIKE ? OR description LIKE ?", q, q)
     render :json => offers
   end
 
