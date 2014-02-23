@@ -40,8 +40,106 @@
     <script type="text/javascript" charset="utf-8">
           $(document).ready(function(){
             $("a[rel^='prettyPhoto']").prettyPhoto();
+    
           });
-        </script>
+    </script>
+    <script>
+ function displayOffers( jsonData ){
+                var htmldata = "";
+              	
+              	htmldata += "<table width=\"100%\" border=\"0\">";
+                htmldata += "<tr><td width=\"25%\"><h1>Titre de l'offre</h1></td><td><h1>Description</h1></td></tr>";
+                                  //$('#offer_results').append( "<table border=\"1\" width=\"100%\">" );
+                for (var object in jsonData)
+                {
+              	  htmldata += "<tr><td width=\"25%\"><h2>" + jsonData[object]['title'] + "</h2></td><td><h3>" + jsonData[object]['description'] + "</h3></td></tr>";
+                }
+              	htmldata += "</table>";
+               	$('#offer_results').append( htmldata );
+						}
+
+          //Display something at first load
+          $(document).ready(function(){
+				// Clear status list.
+				$( "#offer_results" ).empty();
+				
+				// Launch AJAX request.
+				$.ajax(
+					{
+						url: "http://startupweekendcaenstage.herokuapp.com/offer",
+						type: "get",
+						dataType: "json",
+						error: function(){
+              console.log("error");
+						},	
+						beforeSend: function(){
+						},
+						complete: function(){;
+						},	
+						success: 
+            function( jsonData ){
+              displayOffers ( jsonData );
+						} 
+						
+					}
+				);
+				
+				// Prevent default click.
+				return( false );					
+			}
+			);
+    
+          //});
+
+$(
+	function(){
+						
+		// Hook up link click events to load content.
+		$( "#search_offers" ).click(
+			function( objEvent ){
+				
+				// Clear status list.
+				$( "#offer_results" ).empty();
+				
+				// Launch AJAX request.
+				$.ajax(
+					{
+						url: "http://startupweekendcaenstage.herokuapp.com/search?" + $('#search_form').serialize(),
+						type: "get",
+						dataType: "json",
+						error: function(){
+              console.log("error");
+						},	
+						beforeSend: function(){
+						},
+						complete: function(){;
+						},	
+						success: 
+            function( jsonData ){     displayOffers ( jsonData );
+             /*   var htmldata = "";
+              	
+              	htmldata += "<table width=\"100%\" border=\"0\">";
+                htmldata += "<tr><td width=\"25%\"><h1>Titre de l'offre</h1></td><td><h1>Description</h1></td></tr>";
+                                  //$('#offer_results').append( "<table border=\"1\" width=\"100%\">" );
+                for (var object in jsonData)
+                {
+              	  htmldata += "<tr><td width=\"25%\"><h2>" + jsonData[object]['title'] + "</h2></td><td><h3>" + jsonData[object]['description'] + "</h3></td></tr>";
+                }
+              	htmldata += "</table>";
+               	$('#offer_results').append( htmldata );  */
+						} 
+						
+					}
+				);
+				
+				// Prevent default click.
+				return( false );					
+			}
+			);
+		
+	}
+	);
+    </script>
     </head>
     <body>
     <!--******************** NAVBAR ********************-->
@@ -73,42 +171,41 @@
     </div>
     <!-- /.navbar-wrapper -->
     <div id="top"></div>
-    <!--******************** Services Section ********************-->
-    <section id="services" class="single-page scrollblock">
+    <!--******************** Offer form Section ********************-->
+    <section id="contact" class="single-page scrollblock">
       <div class="container">
-        <div class="align"><i class="icon-cog-circled"></i></div>
-        <h1>Services</h1>
-        <!-- Four columns -->
+        <h2>Déposer une offre...</h2>
         <div class="row">
-          <div class="span3">
-            <div class="align"> <i class="icon-link sev_icon"></i> </div>
-            <h2>Co-r&eacute;seautage &eacute;tudiant</h2>
-            <p>Elargissez votre r&eacute;seau pour pr&eacute;parer votre avenir professionnel.</p>
+          <div class="span12">
+            <div class="cform" id="theme-form">
+              <form id="add_offer" class="cform-form">
+                <div class="row">
+                  <div class="span6"> <span class="your-name">
+                    <input type="text" name="title" placeholder="Votre titre" class="cform-text" size="40" title="Votre titre">
+                    </span> </div>
+                </div>
+                <div class="row">
+                  <div class="span12"> <span class="message">
+                    <textarea name="message" placeholder="Votre annonce..." class="cform-textarea" cols="40" rows="10" title="Décrivez votre offre."></textarea>
+                    </span> </div>
+                </div>
+                <div>
+                  <input type="submit" value="Envoyer" class="cform-submit pull-left">
+                </div>
+                <div class="cform-response-output"></div>
+              </form>
+            </div>
           </div>
-          <!-- /.span3 -->
-          <div class="span3">
-            <div class="align"> <i class="icon-thumbs-up sev_icon"></i> </div>
-            <h2>Coaching</h2>
-            <p>Trouvez des professionnels qui vous aideront &agrave; r&eacute;ussir et &agrave; vous r&eacute;aliser pleinement.</p>
-          </div>
-          <!-- /.span3 -->
-          <div class="span3">
-            <div class="align"> <i class="icon-megaphone sev_icon"></i> </div>
-            <h2>Un CV augment&eacute;</h2>
-            <p>Kuikup vous propulse sur le devant de la sc&egrave;ne gr&acirc;ce &agrave; votre CV int&eacute;ractif et multi-m&eacute;dia</p>
-          </div>
-          <!-- /.span3 -->
-          <div class="span3">
-            <div class="align"> <i class="icon-chat sev_icon"></i> </div>
-            <h2>Acc&eacute;l&eacute;rateur de recrutement</h2>
-            <p>La plateforme vous met en contact rapide avec les entreprises qui recrutent et qui correspondent &agrave; votre demande.</p>
-          </div>
-          <!-- /.span3 -->
+          <!-- ./span12 -->
         </div>
         <!-- /.row -->
       </div>
       <!-- /.container -->
     </section>
+    <hr>
+
+
+
     <hr>
     <div class="footer-wrapper">
       <div class="container">
