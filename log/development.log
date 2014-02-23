@@ -3589,3 +3589,87 @@ LINE 5:              WHERE a.attrelid = '"students"'::regclass
   Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.3ms)
 Connecting to database specified by database.yml
 Connecting to database specified by database.yml
+
+
+Started GET "/Student" for 127.0.0.1 at 2014-02-23 11:18:19 +0100
+Processing by StudentController#index as HTML
+  [1m[36mStudent Load (52.1ms)[0m  [1mSELECT "students".* FROM "students" [0m
+Completed 200 OK in 220ms (Views: 0.3ms | ActiveRecord: 216.6ms)
+
+
+Started POST "/Student" for 127.0.0.1 at 2014-02-23 11:18:57 +0100
+Processing by StudentController#create as */*
+  Parameters: {"email"=>"123456@gmail.com", "firstname"=>"Samuel", "lastname"=>"BERTHE", "password"=>"[FILTERED]"}
+WARNING: Can't verify CSRF token authenticity
+  [1m[35m (51.0ms)[0m  BEGIN
+  [1m[36mSQL (209.1ms)[0m  [1mINSERT INTO "students" ("created_at", "email", "firstname", "lastname", "password", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", Sun, 23 Feb 2014 10:18:57 UTC +00:00], ["email", "123456@gmail.com"], ["firstname", "Samuel"], ["lastname", "BERTHE"], ["password", "123456"], ["updated_at", Sun, 23 Feb 2014 10:18:57 UTC +00:00]]
+  [1m[35m (56.3ms)[0m  COMMIT
+Completed 200 OK in 328ms (Views: 0.3ms | ActiveRecord: 367.0ms)
+
+
+Started GET "/Student" for 127.0.0.1 at 2014-02-23 11:19:06 +0100
+Processing by StudentController#index as HTML
+  [1m[36mStudent Load (52.3ms)[0m  [1mSELECT "students".* FROM "students" [0m
+Completed 200 OK in 56ms (Views: 2.0ms | ActiveRecord: 52.3ms)
+
+
+Started GET "/Student" for 127.0.0.1 at 2014-02-23 11:28:07 +0100
+Connecting to database specified by database.yml
+
+
+Started GET "/Student" for 127.0.0.1 at 2014-02-23 11:28:31 +0100
+Processing by StudentController#index as */*
+  Parameters: {"email"=>"123456@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mStudent Load (52.7ms)[0m  [1mSELECT "students".* FROM "students" [0m
+Completed 200 OK in 298ms (Views: 1.8ms | ActiveRecord: 219.7ms)
+
+
+Started GET "/Student/checkPassword" for 127.0.0.1 at 2014-02-23 11:28:48 +0100
+Processing by StudentController#show as */*
+  Parameters: {"email"=>"123456@gmail.com", "password"=>"[FILTERED]", "id"=>"checkPassword"}
+  [1m[35mStudent Load (159.6ms)[0m  SELECT "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1  [["id", "checkPassword"]]
+Completed 404 Not Found in 163ms
+
+ActiveRecord::RecordNotFound (Couldn't find Student with id=checkPassword):
+  app/controllers/student_controller.rb:11:in `show'
+
+
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.5ms)
+
+
+Started GET "/Student/checkPassword" for 127.0.0.1 at 2014-02-23 11:32:34 +0100
+Processing by StudentController#show as */*
+  Parameters: {"email"=>"123456@gmail.com", "password"=>"[FILTERED]", "id"=>"checkPassword"}
+  [1m[36mStudent Load (50.9ms)[0m  [1mSELECT "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1[0m  [["id", "checkPassword"]]
+Completed 404 Not Found in 53ms
+
+ActiveRecord::RecordNotFound (Couldn't find Student with id=checkPassword):
+  app/controllers/student_controller.rb:11:in `show'
+
+
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.3ms)
+
+
+Started GET "/Student/checkPassword" for 127.0.0.1 at 2014-02-23 11:33:08 +0100
+Processing by StudentController#checkPassword as */*
+  Parameters: {"email"=>"123456@gmail.com", "password"=>"[FILTERED]"}
+  [1m[35mStudent Load (52.2ms)[0m  SELECT "students".* FROM "students" WHERE (email = '123456@gmail.com' AND password = '123456')
+Completed 200 OK in 232ms (Views: 0.2ms | ActiveRecord: 215.8ms)
+
+
+Started GET "/Student/checkPassword" for 127.0.0.1 at 2014-02-23 11:33:11 +0100
+Processing by StudentController#checkPassword as */*
+  Parameters: {"email"=>"123456@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mStudent Load (51.0ms)[0m  [1mSELECT "students".* FROM "students" WHERE (email = '123456@gmail.com' AND password = '12345')[0m
+Completed 200 OK in 53ms (Views: 0.4ms | ActiveRecord: 51.0ms)
+
+
+Started GET "/Student/checkPassword" for 127.0.0.1 at 2014-02-23 11:33:16 +0100
+Processing by StudentController#checkPassword as */*
+  Parameters: {"email"=>"123456@gmail.com", "password"=>"[FILTERED]"}
+  [1m[35mStudent Load (50.2ms)[0m  SELECT "students".* FROM "students" WHERE (email = '123456@gmail.com' AND password = '123456')
+Completed 200 OK in 52ms (Views: 0.2ms | ActiveRecord: 50.2ms)

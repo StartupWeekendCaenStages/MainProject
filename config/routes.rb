@@ -61,7 +61,7 @@ Load::Application.routes.draw do
   root to: "offer#index"
 
   match '/search' => 'Offer#search'
-  match '/User/checkPassword' => 'Student#checkPassword'
+  match '/Student/checkPassword' => 'Student#checkPassword'
 
   resources :Offer
   resources :Student
