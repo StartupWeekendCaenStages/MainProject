@@ -1,16 +1,19 @@
 class StudentController < ApplicationController
 
   def index
+    response.headers["Access-Control-Allow-Origin"] = "*"
     students = Student.all
     render :json => students
   end
 
   def show
+    response.headers["Access-Control-Allow-Origin"] = "*"
     student = Student.find(params[:id])
     render :json => user
   end
 
   def checkPassword
+    response.headers["Access-Control-Allow-Origin"] = "*"
     q1 = "#{params[:email]}"
     q2 = "#{params[:password]}"
     student = Student.where("email = ? AND password = ?", q1, q2)
@@ -22,6 +25,7 @@ class StudentController < ApplicationController
   end
 
   def create
+    response.headers["Access-Control-Allow-Origin"] = "*"
     student = Student.new
     student.email = params[:email]
     student.firstname = params[:firstname]
@@ -29,13 +33,6 @@ class StudentController < ApplicationController
     student.password = params[:password]
     student.save
     render :json => []
-  end
-
-  def cors_set_access_control_headers
-    headers['Access-Control-Allow-Origin'] = '*'
-    headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
-    headers['Access-Control-Request-Method'] = '*'
-    headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
   end
 
 end
