@@ -107,8 +107,8 @@ $(
               <ul id="menu-main" class="nav">
                 <li><a title="inscription" href="index.html">Inscription</a></li>
                 <li><a title="portfolio" href="myoffers.html">Mes offres</a></li>
+                <li><a title="wall" href="mywall.html">Le mur</a></li>
                 <li><a title="services" href="ourservices.html">Nos Services</a></li>
-                <!--<li><a title="news" href="#news">News</a></li>  -->
                 <li><a title="team" href="theteam.html#team">L'&eacute;quipe</a></li>
                 <li><a title="contact" href="theteam.html#contact">Contact</a></li>
               </ul>
@@ -131,9 +131,20 @@ $(
             <div class="cform" id="theme-form">
               <form id="search_form" action="#" method="post" class="cform-form">
                 <div class="row">
-                  <div class="span6"> <span class="your-name">
-                    <input type="text" name="your-name" placeholder="Mot-cl&eacute;..." class="cform-text" size="40" title="mot-cle">
+                  <div class="span6"> <span class="keyword">
+                    <input type="text" name="keyword" placeholder="Mot-cl&eacute;..." class="cform-text" size="40" title="mot-cle">
                     </span> </div>
+                </div>
+                <div class="row">
+                  <div class="span6"> <span class="geoloc"><b>Autour de moi :&nbsp;&nbsp;</b> 
+                    <select>
+                    <option value="20" name="geoloc" class="cform-text">20 Km</option>
+                    <option value="50" name="geoloc" class="cform-text">50 Km</option>
+                    <option value="100" name="geoloc" class="cform-text">100 Km</option>
+                    <option value="300" name="geoloc" class="cform-text">300 Km</option>
+                    <option value="0" name="geoloc" class="cform-text">Tout</option>
+                    </select> 
+                  </span> </div>
                 </div>
                 <div>
                   <input id="search_offers" type="submit" value="Rechercher" class="cform-submit pull-left">
@@ -151,18 +162,18 @@ $(
     <hr>
 
     <!--******************** Offers list ********************-->
-    <section id="portfolio" class="single-page scrollblock">
-      <div class="container">
-        <h1 id="folio-headline">Vos offres personnalis&eacute;es...</h1>
-        <div class="row">
+    <!--<section id="portfolio" class="single-page scrollblock">   -->
+      <div class="container">      
+        <h1 id="folio-headline">Votre recherche...</h1>
+<!--        <div class="row">    -->
           <div id="offer_results" class="span4"> test
           </div>
           <!-- /.span4 -->
-        </div>
+<!--        </div>   -->
         <!-- /.row -->
       </div>
       <!-- /.container -->
-    </section>
+    <!--</section>    -->
 
 
 

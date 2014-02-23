@@ -41,7 +41,53 @@
           $(document).ready(function(){
             $("a[rel^='prettyPhoto']").prettyPhoto();
           });
-        </script>
+    </script>
+    <script>
+$(
+	function(){
+		// Get a reference to the content div (into which we will load content).
+		var jContent = $( "#content" );
+						
+		// Hook up link click events to load content.
+		$( "#search_status" ).click(
+			function( objEvent ){
+				var jLink = $( this );
+				
+				// Launch AJAX request.
+				$.ajax(
+					{
+						url: "http://startupweekendcaenstage.herokuapp.com/offer",
+            /* ?& +$('search_form').serialize() */
+						type: "get",
+						dataType: "html",
+						error: function(){
+              console.log("error");
+						},			
+						beforeSend: function(){
+						},
+						complete: function(){;
+						},	
+						success: function( jsonData ){
+							// Load the content in to the page.
+							var json = $('#status_results').html( jsonData );
+              var data = JSON.parse(json);
+
+              var display_area = $('#status_results');
+              for (var object in data) {
+                 console.log(object, data[object]);
+              }
+						}
+					}
+				);
+				
+				// Prevent default click.
+				return( false );					
+			}
+			);
+		
+	}
+	);
+    </script>
     </head>
     <body>
     <!--******************** NAVBAR ********************-->
@@ -72,42 +118,62 @@
     </div>
     <!-- /.navbar-wrapper -->
     <div id="top"></div>
-    <!--******************** Services Section ********************-->
-    <section id="services" class="single-page scrollblock">
+    <!--******************** Offer search form Section ********************-->
+    <section id="contact" class="single-page scrollblock">
       <div class="container">
-        <div class="align"><i class="icon-cog-circled"></i></div>
-        <h1>Services</h1>
-        <!-- Four columns -->
+        <h2>Rechercher dans les statuts...</h2>
         <div class="row">
-          <div class="span3">
-            <div class="align"> <i class="icon-link sev_icon"></i> </div>
-            <h2>Co-r&eacute;seautage &eacute;tudiant</h2>
-            <p>Elargissez votre r&eacute;seau pour pr&eacute;parer votre avenir professionnel.</p>
+          <div class="span12">
+            <div class="cform" id="theme-form">
+              <form id="search_form" action="#" method="post" class="cform-form">
+                <div class="row">
+                  <div class="span6"> <span class="keyword">
+                    <input type="text" name="keyword" placeholder="Mot-cl&eacute;..." class="cform-text" size="40" title="mot-cle">
+                    </span> </div>
+                </div>
+                <div class="row">
+                  <div class="span6"> <span class="geoloc"><b>Autour de moi :&nbsp;&nbsp;</b> 
+                    <select>
+                    <option value="20" name="geoloc" class="cform-text">20 Km</option>
+                    <option value="50" name="geoloc" class="cform-text">50 Km</option>
+                    <option value="100" name="geoloc" class="cform-text">100 Km</option>
+                    <option value="300" name="geoloc" class="cform-text">300 Km</option>
+                    <option value="0" name="geoloc" class="cform-text">Tout</option>
+                    </select> 
+                  </span> </div>
+                </div>
+                <div>
+                  <input id="search_offers" type="submit" value="Rechercher" class="cform-submit pull-left">
+                </div>
+                <div class="cform-response-output"></div>
+              </form>
+            </div>
           </div>
-          <!-- /.span3 -->
-          <div class="span3">
-            <div class="align"> <i class="icon-thumbs-up sev_icon"></i> </div>
-            <h2>Coaching</h2>
-            <p>Trouvez des professionnels qui vous aideront &agrave; r&eacute;ussir et &agrave; vous r&eacute;aliser pleinement.</p>
-          </div>
-          <!-- /.span3 -->
-          <div class="span3">
-            <div class="align"> <i class="icon-megaphone sev_icon"></i> </div>
-            <h2>Un CV augment&eacute;</h2>
-            <p>Kuikup vous propulse sur le devant de la sc&egrave;ne gr&acirc;ce &agrave; votre CV int&eacute;ractif et multi-m&eacute;dia</p>
-          </div>
-          <!-- /.span3 -->
-          <div class="span3">
-            <div class="align"> <i class="icon-chat sev_icon"></i> </div>
-            <h2>Acc&eacute;l&eacute;rateur de recrutement</h2>
-            <p>La plateforme vous met en contact rapide avec les entreprises qui recrutent et qui correspondent &agrave; votre demande.</p>
-          </div>
-          <!-- /.span3 -->
+          <!-- ./span12 -->
         </div>
         <!-- /.row -->
       </div>
       <!-- /.container -->
     </section>
+    <hr>
+
+    <!--******************** Status list ********************-->
+    <!--<section id="portfolio" class="single-page scrollblock">   -->
+      <div class="container">      
+        <h1 id="folio-headline">Votre recherche...</h1>
+<!--        <div class="row">    -->
+          <div id="offer_results" class="span4"> Liste des statuts
+          </div>
+          <!-- /.span4 -->
+<!--        </div>   -->
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+    <!--</section>    -->
+
+
+
+
     <hr>
     <div class="footer-wrapper">
       <div class="container">
