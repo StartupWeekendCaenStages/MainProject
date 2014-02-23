@@ -3,6 +3,7 @@ class OfferController < ApplicationController
 
   def index
     @offers = Offer.all
+    response.headers["Access-Control-Allow-Origin"] = "*"
     render :json => @offers
   end
 

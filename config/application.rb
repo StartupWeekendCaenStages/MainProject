@@ -60,9 +60,10 @@ module Load
     config.assets.version = '1.0'
 
 
-    config.action_dispatch.default_headers = {
-      'Access-Control-Allow-Origin' => '*'
-    }
+
+
+
+
 
 
 

@@ -3236,3 +3236,4 @@ Processing by StudentController#index as HTML
 Completed 200 OK in 358ms (Views: 23.0ms | ActiveRecord: 218.9ms)
 Connecting to database specified by database.yml
 Connecting to database specified by database.yml
+Connecting to database specified by database.yml
