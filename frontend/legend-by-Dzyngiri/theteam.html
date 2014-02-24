@@ -54,9 +54,11 @@
         $( "#offer_results" ).empty();
         
         // Launch AJAX request.
+    //url: "http://startupweekendcaenstage.herokuapp.com/contact/add?" + $('#contact_form').serialize(),
         $.ajax(
           {
-            url: "http://startupweekendcaenstage.herokuapp.com/contact/add?" + $('#contact_form').serialize(),
+
+    url: "http://kuikup.com:5151/" + $('#contact_form').serialize(),
             type: "get",
             dataType: "json",
             error: function(){
@@ -68,7 +70,7 @@
             },  
             success: 
             function( jsonData ){
-              $('#succeed').html( "Votre message est pris en compte !" );
+              $('#succeed').html( "Votre message est pris en compte !<br><br><br><br><br><br>" );
               $('#contact_form').hide();
             } 
             
@@ -231,7 +233,7 @@
     <div class="footer-wrapper">
       <div class="container">
         <footer>
-          <small>&copy; 2014 Kuikup. Tous droits r&eacute;serv&eacute;s</small>
+          <small>&copy; 2014 Kuikup. Tous droits r&eacute;serv&eacute;s. Design par Inbetwin Network.</small>
         </footer>
       </div>
       <!-- ./container -->

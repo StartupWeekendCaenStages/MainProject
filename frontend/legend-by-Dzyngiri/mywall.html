@@ -51,7 +51,14 @@
 
                 for (var object in jsonData)
                 {
-              	  htmldata += "<tr><td width=\"25%\"><h2>" + jsonData[object]['created_at'] + "</h2></td><td><h3>" + jsonData[object]['text'] + "</h3></td></tr>";
+                  var statusdate = new Date(jsonData[object]['created_at']);
+                  var month = statusdate.getMonth() + 1;
+                  var day = statusdate.getDate();
+                  var year = statusdate.getFullYear();
+                  var hours = statusdate.getHours();
+                  var minutes = statusdate.getMinutes();
+                  if (minutes < 10){ minutes = "0" + minutes; }
+              	  htmldata += "<tr><td width=\"25%\"><h2>" + day + "/" + month + "/" + year + " " + hours + ":" + minutes + "</h2></td><td><h3>" + jsonData[object]['text'] + "</h3></td></tr>";
                 }
               	htmldata += "</table>";
                	$('#status_results').append( htmldata );
@@ -221,7 +228,7 @@ $(
     <div class="footer-wrapper">
       <div class="container">
         <footer>
-          <small>&copy; 2014 Kuikup. Tous droits r&eacute;serv&eacute;s</small>
+          <small>&copy; 2014 Kuikup. Tous droits r&eacute;serv&eacute;s. Design par Inbetwin Network.</small>
         </footer>
       </div>
       <!-- ./container -->

@@ -1,9 +1,10 @@
 class StudentController < ApplicationController
 
   def index
-    response.headers["Access-Control-Allow-Origin"] = "*"
     students = Student.all
-    render :json => students
+    respond_to do |format|
+      format.csv { send_data Student.to_csv students, options = {:col_sep => ";"} }
+    end
   end
 
   def show
