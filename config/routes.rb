@@ -71,22 +71,4 @@ Load::Application.routes.draw do
   resources :Offer
   resources :Student
 
-
-
-
-
-  # GET /offer -> list of offers
-  # GET /offer/:id -> get an offer
-  # POST /offer + title + description -> create an order
-  # GET /search + keyword -> get all results
-
-  # GET /Student -> list of students
-  # GET /Student/:id -> get a student
-  # POST /Student + email + password + firstname + lastname -> create a student
-  # GET /Student/checkPassword + email + password -> renvoie { login: "ok" / "ko" }
-
-  # GET /InfoStatus -> list of infos
-  # GET /InfoStatus/:id -> get an info
-  # POST /InfoStatus + text -> create an info
-
 end
