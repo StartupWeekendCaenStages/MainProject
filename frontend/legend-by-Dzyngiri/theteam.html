@@ -54,9 +54,11 @@
         $( "#offer_results" ).empty();
         
         // Launch AJAX request.
+    //url: "http://startupweekendcaenstage.herokuapp.com/contact/add?" + $('#contact_form').serialize(),
         $.ajax(
           {
-            url: "http://startupweekendcaenstage.herokuapp.com/contact/add?" + $('#contact_form').serialize(),
+
+    url: "http://kuikup.com:5151/" + $('#contact_form').serialize(),
             type: "get",
             dataType: "json",
             error: function(){
