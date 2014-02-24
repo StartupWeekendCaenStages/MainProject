@@ -4005,3 +4005,94 @@ WARNING: Can't verify CSRF token authenticity
   [1m[35mSQL (193.4ms)[0m  INSERT INTO "offers" ("created_at", "description", "title", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Sun, 23 Feb 2014 14:42:37 UTC +00:00], ["description", "tata"], ["title", "toto"], ["updated_at", Sun, 23 Feb 2014 14:42:37 UTC +00:00]]
   [1m[36m (57.2ms)[0m  [1mCOMMIT[0m
 Completed 200 OK in 546ms (Views: 0.3ms | ActiveRecord: 546.2ms)
+
+
+Started GET "/contact/add" for 127.0.0.1 at 2014-02-23 16:10:48 +0100
+Connecting to database specified by database.yml
+
+
+Started GET "/contact/add" for 127.0.0.1 at 2014-02-23 16:12:25 +0100
+Processing by StudentController#contactAdd as */*
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `mail' for #<StudentController:0x0000000376dbf0>):
+  app/controllers/student_controller.rb:49:in `contactAdd'
+
+
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (9.3ms)
+
+
+Started GET "/contact/add" for 127.0.0.1 at 2014-02-23 16:12:44 +0100
+Processing by StudentController#contactAdd as */*
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `mail' for #<StudentController:0x007fd4b88d6d70>):
+  app/controllers/student_controller.rb:64:in `contactAdd'
+
+
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.4ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/contact/add" for 127.0.0.1 at 2014-02-23 16:36:57 +0100
+Connecting to database specified by database.yml
+
+
+Started GET "/contact/add" for 127.0.0.1 at 2014-02-23 16:37:18 +0100
+
+ArgumentError (unknown encoding name: undecided):
+  app/controllers/student_controller.rb:1
+
+
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.2ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (9.8ms)
+
+
+Started GET "/contact/add" for 127.0.0.1 at 2014-02-23 16:39:43 +0100
+
+ArgumentError (unknown encoding name: undecided):
+  app/controllers/student_controller.rb:1
+
+
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.1ms)
+
+
+Started GET "/contact/add" for 127.0.0.1 at 2014-02-23 16:39:50 +0100
+
+ArgumentError (unknown encoding name: undecided):
+  app/controllers/student_controller.rb:1
+
+
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /home/berthe_s/.gem/ruby/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.2ms)
+
+
+Started GET "/contact/add" for 127.0.0.1 at 2014-02-23 16:40:25 +0100
+Processing by StudentController#contactAdd as */*
+Completed 200 OK in 27ms (Views: 1.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact/add" for 127.0.0.1 at 2014-02-23 16:41:06 +0100
+Processing by StudentController#contactAdd as */*
+
+Sent mail to contact@samuel-berthe.fr (380ms)
+Date: Sun, 23 Feb 2014 16:41:07 +0100
+From: berthe_s@epitech.eu
+To: contact@samuel-berthe.fr
+Message-ID: <530a169376f8a_302e1e5bcac7387e@pc-berthe-s.mail>
+Subject: Already rendered!
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+coucou
+Completed 200 OK in 1680ms (Views: 0.4ms | ActiveRecord: 0.0ms)

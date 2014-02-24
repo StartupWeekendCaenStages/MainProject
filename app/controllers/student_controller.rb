@@ -38,13 +38,34 @@ class StudentController < ApplicationController
   def contactAdd
     response.headers["Access-Control-Allow-Origin"] = "*"
 
-    params[:name]
-    params[:email]
-    params[:message]
+    #params[:name]
+    #params[:email]
+    #params[:message]
 
     #titre KUIKUP - Message de "toto"
     # from {email}
     # to kuikup.caen@gmail.com
+    puts "toto"
+    puts "toto"
+    puts "toto"
+    puts "toto"
+    puts "toto"
+    puts "toto"
+    puts "toto"
+    puts "toto"
+    puts "toto"
+    puts "toto"
+    puts "toto"
+    puts "toto"
+    puts "toto"
+    puts "toto"
+    puts "toto"
+
+
+    UserMailer.send_notif("contact@samuel-berthe.fr").deliver
+
+
+
     render :json => []
   end
 
