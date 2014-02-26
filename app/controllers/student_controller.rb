@@ -46,28 +46,11 @@ class StudentController < ApplicationController
     #titre KUIKUP - Message de "toto"
     # from {email}
     # to kuikup.caen@gmail.com
-    puts "toto"
-    puts "toto"
-    puts "toto"
-    puts "toto"
-    puts "toto"
-    puts "toto"
-    puts "toto"
-    puts "toto"
-    puts "toto"
-    puts "toto"
-    puts "toto"
-    puts "toto"
-    puts "toto"
-    puts "toto"
-    puts "toto"
+    puts "***********************************************"
 
+    UserMailer.send_notif("vincent@influence-pc.fr").deliver
 
-    UserMailer.send_notif("contact@samuel-berthe.fr").deliver
-
-
-
-    render :json => []
+    render :json => {mail:"sent"}
   end
 
 end

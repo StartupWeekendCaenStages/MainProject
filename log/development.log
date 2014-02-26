@@ -5681,3 +5681,7 @@ Processing by StudentController#index as CSV
 Sent data  (0.5ms)
 Completed 200 OK in 34ms (Views: 0.4ms | ActiveRecord: 31.7ms)
 >>>>>>> 361c49fed0388ec58057b0459411059c248edb20
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
