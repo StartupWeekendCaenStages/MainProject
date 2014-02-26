@@ -64,7 +64,7 @@ Load::Application.routes.draw do
   match '/Student/checkPassword' => 'Student#checkPassword'
 
 
-  match '/contact/add' => 'Student#contactAdd'
+  match '/contact/sendmail' => 'Student#sendMail'
 
 
   resources :InfoStatus

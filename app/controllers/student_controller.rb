@@ -36,9 +36,7 @@ class StudentController < ApplicationController
     render :json => []
   end
 
-  def contactAdd
-    response.headers["Access-Control-Allow-Origin"] = "*"
-
+  def sendMail
     #params[:name]
     #params[:email]
     #params[:message]
@@ -48,8 +46,9 @@ class StudentController < ApplicationController
     # to kuikup.caen@gmail.com
     puts "***********************************************"
 
-    UserMailer.send_notif("vincent@influence-pc.fr").deliver
+    StudentMailer.send_notif("vincent@influence-pc.fr").deliver
 
+    response.headers["Access-Control-Allow-Origin"] = "*"
     render :json => {mail:"sent"}
   end
 

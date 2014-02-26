@@ -5685,3 +5685,68 @@ Connecting to database specified by database.yml
 Connecting to database specified by database.yml
 Connecting to database specified by database.yml
 Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2014-02-26 16:15:47 +0100
+Served asset /rails.png - 200 OK (1ms)
+
+
+Started GET "/contact/sendmail" for 127.0.0.1 at 2014-02-26 16:16:15 +0100
+Processing by StudentController#sendMail as HTML
+
+Sent mail to vincent@influence-pc.fr (31ms)
+Date: Wed, 26 Feb 2014 16:16:16 +0100
+From: vincent@influence-pc.fr
+To: vincent@influence-pc.fr
+Message-ID: <530e0540d4154_272826058b8496f3@DellPrecision.mail>
+Subject: Already rendered!
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+coucou
+Completed 200 OK in 415ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact/sendmail" for 127.0.0.1 at 2014-02-26 16:36:18 +0100
+Processing by StudentController#sendMail as HTML
+
+Sent mail to vincent@influence-pc.fr (3ms)
+Date: Wed, 26 Feb 2014 16:36:18 +0100
+From: vincent@influence-pc.fr
+To: vincent@influence-pc.fr
+Message-ID: <530e09f256856_27283f92d02f58a8497c8@DellPrecision.mail>
+Subject: Already rendered!
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+coucou
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact/sendmail" for 127.0.0.1 at 2014-02-26 16:47:56 +0100
+Processing by StudentController#sendMail as HTML
+
+Sent mail to vincent@influence-pc.fr (5ms)
+Date: Wed, 26 Feb 2014 16:47:57 +0100
+From: vincent@influence-pc.fr
+To: vincent@influence-pc.fr
+Message-ID: <530e0cadac9b1_27283f92d00f2f6049855@DellPrecision.mail>
+Subject: Already rendered!
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+coucou
+Completed 200 OK in 18ms (Views: 0.1ms | ActiveRecord: 0.0ms)
